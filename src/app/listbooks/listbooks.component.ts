@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from '../model/book';
+import { BookdetailsComponent } from '../bookdetails/bookdetails.component';
 
 @Component({
   selector: 'app-listbooks',
@@ -19,5 +20,6 @@ export class ListbooksComponent {
   hideCard() {
     this.selectedBook = undefined;
   }
+
 
 }

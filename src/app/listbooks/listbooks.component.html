@@ -9,13 +9,5 @@
     <button class="btn  btn-primary" (click)="displayBook(b)"> Détails </button>
   </div>
 
-  <div class="card" style="width: 18rem;"  *ngIf="selectedBook !== undefined">
-    <img class="card-img-top" [src]=selectedBook.cover alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"> {{ selectedBook.title}}</h5>
-      <p class="card-text"> Par : {{ selectedBook.author}}</p>
-      <a href="#" class="btn btn-primary" (click)="hideCard()">Cacher</a>
-    </div>
-  </div>
-
+  <app-bookdetails [book]="selectedBook" *ngIf="selectedBook !== undefined"> </app-bookdetails>
 </div>
