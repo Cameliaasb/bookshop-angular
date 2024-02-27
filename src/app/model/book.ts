@@ -1,10 +1,6 @@
 export class Book {
-  public get cover(): string {
-    return this._cover;
-  }
-  public set cover(value: string) {
-    this._cover = value;
-  }
+
+  // N'écrire que le constructor. Click droit sur un attribut > refactor > generate getters and setters
   constructor(
     private _id: number,
     private _cover: string,
@@ -12,11 +8,15 @@ export class Book {
     private _author: string,
     private _publication_date: string,
     private _price: number
-  ) {}
+    ) {}
 
-  // Getters
+  // Getters générés
   get id(): number {
     return this._id;
+  }
+
+  public get cover(): string {
+    return this._cover;
   }
 
   get title(): string {
@@ -35,9 +35,12 @@ export class Book {
     return this._publication_date;
   }
 
-  // Setters
+  // Setters générés
   set id(id: number) {
     this._id = id;
+  }
+  public set cover(value: string) {
+    this._cover = value;
   }
 
   set title(title: string) {
