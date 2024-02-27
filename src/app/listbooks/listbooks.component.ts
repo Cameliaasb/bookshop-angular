@@ -17,8 +17,9 @@ export class ListbooksComponent {
   displayBook(book: Book) {
     this.selectedBook = book;
   }
-  hideCard() {
+  hideCard(message : string) {
     this.selectedBook = undefined;
+    console.log(message);
   }
 
 

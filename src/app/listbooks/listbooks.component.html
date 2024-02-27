@@ -9,5 +9,9 @@
     <button class="btn  btn-primary" (click)="displayBook(b)"> Détails </button>
   </div>
 
-  <app-bookdetails [book]="selectedBook" *ngIf="selectedBook !== undefined"> </app-bookdetails>
+  <app-bookdetails
+    [book]="selectedBook"
+    *ngIf="selectedBook !== undefined"
+    (hideBookDetails)="hideCard($event)"
+  > </app-bookdetails>
 </div>
