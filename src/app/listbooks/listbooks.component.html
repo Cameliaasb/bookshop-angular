@@ -1,7 +1,9 @@
 
 <div class="container mt-3">
+  <app-search-books
+  (filterBooks)="filteredBooks($event)"></app-search-books>
 
-  <div *ngFor="let b of books" class="border p-3 m-3">
+  <div *ngFor="let b of displayedBooks" class="border p-3 m-3">
     <h4> {{ b.title }} </h4>
     <p> Auteur: {{ b.author}} </p>
     <p> Publié le {{ b.publication_date}} </p>

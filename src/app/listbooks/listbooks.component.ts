@@ -14,13 +14,21 @@ export class ListbooksComponent {
     new Book(2, "https://www.livredepoche.com/sites/default/files/styles/manual_crop_269_435/public/images/livres/couv/9782253041931-001-T.jpeg?itok=3Qx9jqeh", "Léon l'africain", "Amin Maalouf",  "01/10/2002",  18 ),
     new Book(3, "https://m.media-amazon.com/images/I/71DeedEBh9L._AC_UF1000,1000_QL80_.jpg", "Sorcières",  "Mona Chollet",  "01/01/2010",  15 ),
   ];
+  displayedBooks = this.books;
+  filteredBooks(keyword : string){
+    this.displayedBooks = this.books.filter(b => b.author.toLowerCase().includes(keyword.toLowerCase())
+                                    || b.title.toLowerCase().includes(keyword.toLowerCase()));
+  }
+
   displayBook(book: Book) {
     this.selectedBook = book;
-  }
+  };
+
   hideCard(message : string) {
     this.selectedBook = undefined;
     console.log(message);
-  }
+  };
+
 
 
 }
