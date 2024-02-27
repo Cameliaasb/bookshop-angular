@@ -1,6 +1,13 @@
 export class Book {
+  public get cover(): string {
+    return this._cover;
+  }
+  public set cover(value: string) {
+    this._cover = value;
+  }
   constructor(
     private _id: number,
+    private _cover: string,
     private _title: string,
     private _author: string,
     private _publication_date: string,

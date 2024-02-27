@@ -4,8 +4,18 @@
   <div *ngFor="let b of books" class="border p-3 m-3">
     <h4> {{ b.title }} </h4>
     <p> Auteur: {{ b.author}} </p>
-    <p> Publié: {{ b.date_publication}} </p>
+    <p> Publié le {{ b.publication_date}} </p>
     <p>  {{ b.price}} € </p>
+    <button class="btn  btn-primary" (click)="displayBook(b)"> Détails </button>
+  </div>
+
+  <div class="card" style="width: 18rem;"  *ngIf="selectedBook !== undefined">
+    <img class="card-img-top" [src]=selectedBook.cover alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"> {{ selectedBook.title}}</h5>
+      <p class="card-text"> Par : {{ selectedBook.author}}</p>
+      <a href="#" class="btn btn-primary" (click)="hideCard()">Cacher</a>
+    </div>
   </div>
 
 </div>
