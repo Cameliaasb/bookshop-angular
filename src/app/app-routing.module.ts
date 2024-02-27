@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListbooksComponent } from './listbooks/listbooks.component';
+import { ListbooksComponent } from './books/listbooks/listbooks.component';
 import { AboutComponent } from './about/about.component';
-import { AddBookComponent } from './add-book/add-book.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+import { AddBookComponent } from './books/add-book/add-book.component';
+import { EditBookComponent } from './books/edit-book/edit-book.component';
 
 const routes: Routes = [
   // une route, "un path" = un composant + une URL

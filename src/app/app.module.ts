@@ -3,26 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListbooksComponent } from './listbooks/listbooks.component';
-import { BookdetailsComponent } from './bookdetails/bookdetails.component';
-import { SearchBooksComponent } from './search-books/search-books.component';
-import { AboutComponent } from './about/about.component';
-import { AddBookComponent } from './add-book/add-book.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+import { BooksModule } from './books/books.module';
+import { AuthorsModule } from './authors/authors.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListbooksComponent,
-    BookdetailsComponent,
-    SearchBooksComponent,
-    AboutComponent,
-    AddBookComponent,
-    EditBookComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BooksModule,
+    AuthorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
