@@ -9,8 +9,8 @@ const routes: Routes = [
   // une route, "un path" = un composant + une URL
   // Dès qu'un path est appelé, le composant est chargé
   {path: "books", component : ListbooksComponent},
-  {path: "add", component: AddBookComponent},
-  {path: "edit", component: EditBookComponent},
+  {path: "books/add", component: AddBookComponent},
+  {path: "books/edit", component: EditBookComponent},
   {path: "about", component: AboutComponent},
   {path: "", redirectTo: "books", pathMatch: "full"}
 

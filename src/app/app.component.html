@@ -5,21 +5,23 @@
   <!-- AVANT ROUTES :  <app-listbooks></app-listbooks> -->
 
 
-  <!-- APRES CONFIGURATION ROUTES surr app.routing.module.ts -->
+  <!-- APRES CONFIGURATION ROUTES sur app.routing.module.ts -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
     <div  id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
           <a routerLink="/books" class="nav-link"> Books </a>
+          <!-- si on met books => ça sera par rapport au chemin actuel -->
+          <!-- il faut bien mettre / au début pour revenir à la racine -->
+        </li>
+        <li class="nav-item">
+          <a routerLink="/books/add" class="nav-link"> Add a book</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/books/edit" class="nav-link"> Edit a book</a>
         </li>
         <li class="nav-item">
           <a routerLink="/about" class="nav-link"> About</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/add" class="nav-link"> Add a book</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/edit" class="nav-link"> Edit a book</a>
         </li>
       </ul>
     </div>
