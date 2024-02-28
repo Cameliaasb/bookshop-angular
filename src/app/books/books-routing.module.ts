@@ -6,8 +6,9 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 
 const routes: Routes = [
   {path: "", component : ListbooksComponent},
-  {path: "books/add", component: AddBookComponent},
-  {path: "books/edit", component: EditBookComponent}
+  // Ecrire "add" et "books/add" c'est pareil. "/add" : Erreur
+  {path: "add", component: AddBookComponent},
+  {path: "edit", component: EditBookComponent}
 ];
 
 @NgModule({
