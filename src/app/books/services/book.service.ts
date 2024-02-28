@@ -10,11 +10,11 @@ export class BookService {
 
   private books = [
     new Book(1, "https://static.fnac-static.com/multimedia/Images/FR/NR/84/17/03/202628/1540-1/tsp20231012072027/Samarcande.jpg",
-        "Samarcande", "Amin Maalouf",  "01/01/2000",  16.2 ),
+        "Samarcande", "Amin Maalouf",  16.2 ),
     new Book(2, "https://www.livredepoche.com/sites/default/files/styles/manual_crop_269_435/public/images/livres/couv/9782253041931-001-T.jpeg?itok=3Qx9jqeh",
-        "Léon l'africain", "Amin Maalouf",  "01/10/2002",  18 ),
+        "Léon l'africain", "Amin Maalouf", 18 ),
     new Book(3, "https://m.media-amazon.com/images/I/71DeedEBh9L._AC_UF1000,1000_QL80_.jpg",
-        "Sorcières",  "Mona Chollet",  "01/01/2010",  15 ),
+        "Sorcières",  "Mona Chollet",  15 ),
   ];
 
   constructor() { }
@@ -23,5 +23,12 @@ export class BookService {
     // return this.books;  =>  donne un accès direct à mon tableau books, donc ça sert à rien le private
     // Il faut rendre une copie du tableau books :
     return [...this.books];
+  }
+
+  addBook(book : Book){
+    this.books = [...this.books, book];
+  }
+  getLastId(){
+    return this.books[this.books.length - 1].id
   }
 }
