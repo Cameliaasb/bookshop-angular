@@ -7,8 +7,12 @@
       <span class="erreur" *ngIf="title.invalid && title.touched">Le champ est obligatoire</span>
   </div>
   <div class="mb-3">
-      <label for="author" class="form-label">Auteur</label>
-      <input type="text" class="form-control" id="author" name="author" ngModel required #author="ngModel">
+      <label for="authorId" class="form-label">Auteur</label>
+      <select id="authorId" name="authorId" ngModel required #author="ngModel">
+        <option value=""></option>
+        <option  *ngFor="let author of authors" [value]="author.id"> {{ author.firstName}} {{author.lastName }}</option>
+      </select>
+      <!-- <input type="text" class="form-control" id="author" name="author" ngModel required #author="ngModel"> -->
       <span class="erreur" *ngIf="author.invalid && author.touched">Le champ est obligatoire</span>
   </div>
   <div class="mb-3">

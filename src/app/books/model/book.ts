@@ -5,7 +5,7 @@ export class Book {
     private _id: number,
     private _cover: string,
     private _title: string,
-    private _author: string,
+    private _author_id: number,
     private _price: number
     ) {}
 
@@ -22,8 +22,8 @@ export class Book {
     return this._title;
   }
 
-  get author(): string {
-    return this._author;
+  get authorId(): number {
+    return this._author_id;
   }
 
   get price(): number {
@@ -43,8 +43,8 @@ export class Book {
     this._title = title;
   }
 
-  set author(author: string){
-    this._author = author;
+  set author(authorId: number){
+    this._author_id = authorId;
   }
 
   set price(price: number) {
