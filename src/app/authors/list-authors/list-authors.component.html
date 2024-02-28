@@ -1,17 +1,20 @@
-<p>list-authors works!</p>
-<table class="table table-striped">
+<p> Liste des auteurs</p>
+
+<table class="table table-striped" >
   <thead>
-      <tr>
-          <th>Id</th>
-          <th>Prénom</th>
-          <th>Nom</th>
-      </tr>
+    <tr>
+      <th>Id</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+    </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let a of authors">
-          <td>{{a.id}}</td>
-          <td>{{a.firstName}}</td>
-          <td>{{a.lastName}}</td>
-      </tr>
+    <tr *ngFor="let a of authors">
+      <td>{{a.id}}</td>
+      <td>{{a.firstName}}</td>
+      <td>{{a.lastName}}</td>
+    </tr>
   </tbody>
 </table>
+
+<button class="btn btn-success" routerLink="/authors/add">  Ajouter un auteur   </button>

@@ -11,15 +11,15 @@ export class Author {
   public set firstName(value: string) {
     this._firstName = value;
   }
-  public get id(): Number {
+  public get id(): number {
     return this._id;
   }
-  public set id(value: Number) {
+  public set id(value: number) {
     this._id = value;
   }
 
   constructor(
-    private _id: Number,
+    private _id: number,
     private _firstName: string,
     private _lastName: string
   ){}
