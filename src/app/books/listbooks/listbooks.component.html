@@ -1,14 +1,14 @@
 
 <div class="container mt-3">
   <app-search-books
-  (filterBooks)="filteredBooks($event)"></app-search-books>
+  (filterBooks)="filterBooks($event)"></app-search-books>
 
 
   <div class="d-flex flex-wrap">
-    <div class="card m-3 " style="width: 18rem;" *ngFor="let b of displayedBooks?displayedBooks:books" >
+    <div class="card m-3 " style="width: 18rem;" *ngFor="let b of filteredBooks?filteredBooks:booksToDisplay" >
       <div class="card-body">
         <h5 class="card-title">{{ b.title }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ b.authorId}} </h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{ b.author}} </h6>
         <p>  {{ b.price}} € </p>
 
         <button class="btn  btn-primary" (click)="displayBook(b)"> Détails </button>
@@ -17,9 +17,9 @@
   </div>
 
   <app-bookdetails
-  [book]="selectedBook"
-  *ngIf="selectedBook !== undefined"
-  (hideBookDetails)="hideCard($event)"
+    [book]="selectedBook"
+    *ngIf="selectedBook !== undefined"
+    (hideBookDetails)="hideCard($event)"
   > </app-bookdetails>
 
   <button class="btn btn-success" routerLink="/books/add"> Ajouter un livre </button>

@@ -21,4 +21,10 @@ export class AuthorService {
   getLastId(){
     return this.authors[this.authors.length - 1].id
   }
+
+  getAuthorFullName(id: number){
+    const author = this.authors.find(a => a.id === id);
+    const authorFullName = ` ${author?.firstName} ${author?.lastName}`;
+    return authorFullName;
+  }
 }
