@@ -6,7 +6,6 @@ export class Book {
     private _cover: string,
     private _title: string,
     private _author: string,
-    private _publication_date: string,
     private _price: number
     ) {}
 
@@ -31,9 +30,6 @@ export class Book {
     return this._price;
   }
 
-  get publication_date(): string {
-    return this._publication_date;
-  }
 
   // Setters générés
   set id(id: number) {
@@ -55,7 +51,4 @@ export class Book {
     this._price = price;
   }
 
-  set publication_date(publication_date: string) {
-    this._publication_date = publication_date;
-  }
 }
