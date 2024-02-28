@@ -4,7 +4,7 @@
   (filterBooks)="filteredBooks($event)"></app-search-books>
 
   <div class="d-flex flex-wrap">
-    <div class="card m-3 " style="width: 18rem;" *ngFor="let b of displayedBooks">
+    <div class="card m-3 " style="width: 18rem;" *ngFor="let b of displayedBooks?displayedBooks:books" >
       <div class="card-body">
         <h5 class="card-title">{{ b.title }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ b.author}} </h6>
