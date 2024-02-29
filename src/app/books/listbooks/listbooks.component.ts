@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Book } from '../model/book';
 import { BookdetailsComponent } from '../bookdetails/bookdetails.component';
 import { BookService } from '../services/book.service';
 import { IBookToDisplay } from '../model/ibook-to-display';
 import { BookToDisplay } from '../model/book-to-display';
 import { AuthorService } from 'src/app/authors/services/author.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-listbooks',
@@ -14,20 +15,19 @@ import { AuthorService } from 'src/app/authors/services/author.service';
 
 // Ma classe doit implémenter une interface "OnInit" si on veut lui passer des données au chargement
 // il faut implémenter la méthode : ngOnInit()
-export class ListbooksComponent implements OnInit {
+export class ListbooksComponent implements OnInit, OnDestroy {
 
   books : Book[] = [];  // initialise books
   selectedBook? : IBookToDisplay;
   booksToDisplay : IBookToDisplay[] = [];
   filteredBooks? : IBookToDisplay[];
+  bookSubscription? : Subscription;
 
 
   constructor(
     private bookService : BookService,
     private authorService : AuthorService
     ){}
-
-
 
 
   filterBooks(keyword : string){
@@ -43,11 +43,14 @@ export class ListbooksComponent implements OnInit {
     console.log(message);
   };
 
+  deleteBook(bookId : number) {
+    if (confirm("Supprimer le livre ?")) {
+      this.bookService.deleteBook(bookId);
+    }
+  }
 
-  // Implemente l'interface OnInit
-  ngOnInit(): void {
-    this.books = this.bookService.getBooks();
-    this.booksToDisplay = this.books.map(b=>{
+  transformBooks() : IBookToDisplay[] {
+    return this.books.map(b=>{
       return {
         id : b.id,
         cover : b.cover,
@@ -55,6 +58,21 @@ export class ListbooksComponent implements OnInit {
         author : this.authorService.getAuthorFullName(+b.authorId),
         price : b.price
       } as IBookToDisplay
-    })
+  })}
+
+  // Implemente l'interface OnInit
+  ngOnInit(): void {
+    this.books = this.bookService.getBooks();
+    this.booksToDisplay = this.transformBooks();
+
+
+    this.bookSubscription = this.bookService.booksListUpdated
+      .subscribe(b => {
+        this.books = b,
+        this.booksToDisplay = this.transformBooks()
+      })
+  }
+  ngOnDestroy(): void {
+    this.bookSubscription?.unsubscribe();
   }
 }

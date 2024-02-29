@@ -13,6 +13,7 @@
         <div class="d-flex justify-content-around">
             <button class="btn  btn-success" (click)="displayBook(b)"> Détails </button>
             <button class="btn  btn-primary" routerLink="/books/edit/{{b.id}}"> Editer </button>
+            <button class="btn btn-danger" (click)="deleteBook(b.id)"> Supprimer</button>
         </div>
       </div>
     </div>
