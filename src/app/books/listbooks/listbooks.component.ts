@@ -52,7 +52,7 @@ export class ListbooksComponent implements OnInit {
         id : b.id,
         cover : b.cover,
         title : b.title,
-        author : this.authorService.getAuthorFullName(b.authorId),
+        author : this.authorService.getAuthorFullName(+b.authorId),
         price : b.price
       } as IBookToDisplay
     })

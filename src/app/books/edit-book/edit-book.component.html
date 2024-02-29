@@ -19,7 +19,7 @@
   </div>
   <div class="mb-3">
     <label for="authorId" class="form-label">Auteur</label>
-    <select id="authorId" name="authorId" ngModel [(ngModel)]="book!.author"  required #author="ngModel">
+    <select id="authorId" name="authorId" ngModel [(ngModel)]="book!.authorId"  required #author="ngModel">
       <!-- TO DO : Rendre le bon author selected par défaut  -->
       <option  *ngFor="let author of authors" [value]="author.id"> {{ author.firstName}} {{author.lastName }}</option>
     </select>

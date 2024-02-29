@@ -1,54 +1,42 @@
 export class Book {
-
-  // N'écrire que le constructor. Click droit sur un attribut > refactor > generate getters and setters
-  constructor(
-    private _id: number,
-    private _cover: string,
-    private _title: string,
-    private _author_id: number,
-    private _price: number
-    ) {}
-
-  // Getters générés
-  get id(): number {
-    return this._id;
+  public get authorId(): number {
+      return this._authorId;
   }
-
+  public set authorId(value: number) {
+      this._authorId = value;
+  }
+  public get id(): number {
+      return this._id;
+  }
+  public set id(value: number) {
+      this._id = value;
+  }
   public get cover(): string {
-    return this._cover;
-  }
-
-  get title(): string {
-    return this._title;
-  }
-
-  get authorId(): number {
-    return this._author_id;
-  }
-
-  get price(): number {
-    return this._price;
-  }
-
-
-  // Setters générés
-  set id(id: number) {
-    this._id = id;
+      return this._cover;
   }
   public set cover(value: string) {
-    this._cover = value;
+      this._cover = value;
+  }
+  public get title(): string {
+      return this._title;
+  }
+  public set title(value: string) {
+      this._title = value;
   }
 
-  set title(title: string) {
-    this._title = title;
+
+  public get price(): number {
+      return this._price;
+  }
+  public set price(value: number) {
+      this._price = value;
   }
 
-  set author(authorId: number){
-    this._author_id = authorId;
-  }
-
-  set price(price: number) {
-    this._price = price;
-  }
-
+  constructor(
+      private _id: number,
+      private _cover: string,
+      private _title: string,
+      private _authorId: number,
+      private _price: number = 0.0
+  ){}
 }
