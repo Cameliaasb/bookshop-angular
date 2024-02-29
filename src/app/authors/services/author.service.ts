@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Author } from '../model/author';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,8 @@ export class AuthorService {
     return this.authors[this.authors.length - 1].id
   }
 
+  authorsListUpdated = new Subject<Author[]>();
+
   getAuthorFullName(id: number){
     const author = this.getAuthor(id);
     const authorFullName = ` ${author?.firstName} ${author?.lastName}`;
@@ -42,5 +45,7 @@ export class AuthorService {
 
   deleteAuthor(author: Author){
     this.authors = this.authors?.filter(a => a !== author);
+    // pour récupérer la liste sans re initialiser le composant (changer d'onglet et revenir)
+    this.authorsListUpdated.next([...this.authors]);
   }
 }
