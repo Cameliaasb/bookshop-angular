@@ -27,4 +27,9 @@ export class AuthorService {
     const authorFullName = ` ${author?.firstName} ${author?.lastName}`;
     return authorFullName;
   }
+
+  getAuthor(id: number) {
+    const author = this.authors.find(a => a.id === id);
+    return author;
+  }
 }
