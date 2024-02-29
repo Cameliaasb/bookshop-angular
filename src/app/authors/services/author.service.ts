@@ -23,7 +23,7 @@ export class AuthorService {
   }
 
   getAuthorFullName(id: number){
-    const author = this.authors.find(a => a.id === id);
+    const author = this.getAuthor(id);
     const authorFullName = ` ${author?.firstName} ${author?.lastName}`;
     return authorFullName;
   }
@@ -31,5 +31,12 @@ export class AuthorService {
   getAuthor(id: number) {
     const author = this.authors.find(a => a.id === id);
     return author;
+  }
+
+  editAuthor(author : Author) {
+    // pas compris
+    this.authors = this.authors.map(
+      a=>a.id===author.id?author:a
+    );
   }
 }

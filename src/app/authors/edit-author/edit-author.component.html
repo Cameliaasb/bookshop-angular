@@ -1,1 +1,16 @@
-<p>{{ author?.firstName}} {{ author?.lastName}}</p>
+<!-- <h2>{{ author!.firstName}} {{ author!.lastName}}</h2> -->
+<h2> Editer un auteur </h2>
+
+<form (ngSubmit)="editAuthor(f)" #f="ngForm">
+  <div class="mb-3">
+      <label for="firstName" class="form-label">Prénom</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="author!.firstName"  ngModel required #first="ngModel">
+      <span class="erreur" *ngIf="first.invalid && first.touched">Le champ Prénom est obligatoire</span>
+  </div>
+  <div class="mb-3">
+      <label for="lastName" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="lastName" name="lastName"  [(ngModel)]="author!.lastName" ngModel required #last="ngModel">
+      <span class="erreur" *ngIf="last.invalid && last.touched">Le champ Nom est obligatoire</span>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Valider</button>
+</form>
