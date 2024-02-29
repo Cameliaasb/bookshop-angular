@@ -10,8 +10,10 @@
         <h5 class="card-title">{{ b.title }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ b.author}} </h6>
         <p>  {{ b.price}} € </p>
-
-        <button class="btn  btn-primary" (click)="displayBook(b)"> Détails </button>
+        <div class="d-flex justify-content-around">
+            <button class="btn  btn-success" (click)="displayBook(b)"> Détails </button>
+            <button class="btn  btn-primary" routerLink="/books/edit/{{b.id}}"> Editer </button>
+        </div>
       </div>
     </div>
   </div>

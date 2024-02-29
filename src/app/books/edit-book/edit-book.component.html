@@ -1,1 +1,29 @@
-<p>edit-book works!</p>
+<h3>Editer un livre</h3>
+<!-- <p>{{ book!.title}} </p> -->
+
+<form (ngSubmit)="editBook(f)" #f="ngForm">
+  <div class="mb-3">
+      <label for="title" class="form-label">Titre</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book!.title"  ngModel required #first="ngModel">
+      <span class="erreur" *ngIf="first.invalid && first.touched">Le champ Prénom est obligatoire</span>
+  </div>
+  <div class="mb-3">
+      <label for="coverURL" class="form-label">URL de la couverture</label>
+      <input type="text" class="form-control" id="coverURL" name="coverURL"  [(ngModel)]="book!.cover" ngModel required #last="ngModel">
+      <span class="erreur" *ngIf="last.invalid && last.touched">Le champ Nom est obligatoire</span>
+  </div>
+  <div class="mb-3">
+      <label for="price" class="form-label">Prix</label>
+      <input type="number" class="form-control" id="price" name="price"  [(ngModel)]="book!.price" ngModel required #last="ngModel">
+      <span class="erreur" *ngIf="last.invalid && last.touched">Le champ Nom est obligatoire</span>
+  </div>
+  <div class="mb-3">
+    <label for="authorId" class="form-label">Auteur</label>
+    <select id="authorId" name="authorId" ngModel [(ngModel)]="book!.author"  required #author="ngModel">
+      <!-- TO DO : Rendre le bon author selected par défaut  -->
+      <option  *ngFor="let author of authors" [value]="author.id"> {{ author.firstName}} {{author.lastName }}</option>
+    </select>
+    <span class="erreur" *ngIf="author.invalid && author.touched">Le champ est obligatoire</span>
+</div>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Valider</button>
+</form>

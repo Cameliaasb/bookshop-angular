@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: "", component : ListbooksComponent},
   // Ecrire "add" et "books/add" c'est pareil. "/add" : Erreur
   {path: "add", component: AddBookComponent},
-  {path: "edit", component: EditBookComponent}
+  {path: "edit/:bookId", component: EditBookComponent}
 ];
 
 @NgModule({

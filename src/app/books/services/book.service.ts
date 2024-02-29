@@ -29,6 +29,15 @@ export class BookService {
     this.books = [...this.books, book];
   }
   getLastId(){
-    return this.books[this.books.length - 1].id
+    return this.books[this.books.length - 1].id;
+  }
+
+  getBookById(id : number) {
+    const book = this.books.find(b => b.id === id);
+    return book;
+  }
+
+  editBook(book : Book) {
+    this.books = this.books.map(b => b.id === book.id ? book : b);
   }
 }
