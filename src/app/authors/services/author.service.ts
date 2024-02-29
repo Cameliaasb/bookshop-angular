@@ -34,9 +34,13 @@ export class AuthorService {
   }
 
   editAuthor(author : Author) {
-    // pas compris
+    // C'est le service qui met à jour la vraie, pas que les books affichés
     this.authors = this.authors.map(
       a=>a.id===author.id?author:a
     );
+  }
+
+  deleteAuthor(author: Author){
+    this.authors = this.authors?.filter(a => a !== author);
   }
 }

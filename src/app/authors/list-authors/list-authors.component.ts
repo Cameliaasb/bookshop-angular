@@ -11,6 +11,12 @@ export class ListAuthorsComponent implements OnInit{
   authors? : Author[]
   constructor(private authorService : AuthorService) {}
 
+  delete(author : Author) {
+    if (confirm("Supprimer l'auteur?")) {
+      this.authorService.deleteAuthor(author);
+    }
+  }
+
   ngOnInit(): void {
     this.authors = this.authorService.GetAuthors();
   }
